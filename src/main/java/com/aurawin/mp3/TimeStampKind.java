@@ -1,0 +1,53 @@
+package com.aurawin.mp3;
+
+public enum TimeStampKind {
+    Padding  (0x0),
+    EndOfInitialSilence (0x1),
+    IntroStart (0x2),
+    MainPartStart (0x3),
+    OutroStart (0x4),
+    OutroEnd (0x5),
+    VerseBegins (0x6),
+    RefrainBegins (0x7),
+    Interlude (0x8),
+    ThemeStart (0x9),
+    Variation (0xA),
+    KeyChange (0xB),
+    TimeChange (0xC),
+    UnwantedNoise (0xD),
+    UserDefined0 (0xE0),
+    UserDefined1 (0xE1),
+    UserDefined2 (0xE2),
+    UserDefined3 (0xE3),
+    UserDefined4 (0xE4),
+    UserDefined5 (0xE5),
+    UserDefined6 (0xE6),
+    UserDefined7 (0xE7),
+    UserDefined8 (0xE8),
+    UserDefined9 (0xE9),
+    UserDefined10 (0xEA),
+    UserDefined11 (0xEB),
+    UserDefined12 (0xEC),
+    UserDefined13 (0xED),
+    UserDefined14 (0xEF),
+    Reserved0 (0xF0),
+    Reserved1 (0xF1),
+    Reserved2 (0xF2),
+    Reserved3 (0xF3),
+    Reserved4 (0xF4),
+    Reserved5 (0xF5),
+    Reserved6 (0xF6),
+    Reserved7 (0xF7),
+    Reserved8 (0xF8),
+    Reserved9 (0xF9),
+    Reserved10 (0xFA),
+    Reserved11 (0xFB),
+    Reserved12 (0xFC),
+    AudioEnd (0xFD),
+    AudioFileEnds (0xFE),
+    OneByteOfEventsFollows (0xFF);
+
+    TimeStampKind(int value){ Value = value;}
+    private final int Value;
+    public int getValue(){return Value;}
+}
