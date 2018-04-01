@@ -1,6 +1,6 @@
-package com.aurawin.mp3;
+package com.aurawin.mp3.frame;
 
-public enum FrameKind {
+public enum Kind {
     fNone ("None"),                                     // 0
     fID3 ("ID3"),                                       // 1
     fID3V20 ("ID3 V2.0"),                               // 2
@@ -108,7 +108,7 @@ public enum FrameKind {
     fPodcastFeed ("Podcast Feed"),                                           // 104
     fPodcastID ("Podcast ID") ;                                              // 105
 
-    FrameKind(String value){ Value = value;}
+    Kind(String value){ Value = value;}
     private final String Value;
     public String getValue(){return Value;}
 

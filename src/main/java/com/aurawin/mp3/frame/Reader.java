@@ -31,8 +31,8 @@ public class Reader {
     protected Frame TagFrame;
     public com.aurawin.mp3.frame.tag.Event OnTagFrame;
 
-    public void LoadAll(MemoryStream Stream);
-    public void  LoadFirst(MemoryStream Stream);
+    public void LoadAll(MemoryStream Stream){};
+    public void  LoadFirst(MemoryStream Stream){};
 
     public void Release(){
 
