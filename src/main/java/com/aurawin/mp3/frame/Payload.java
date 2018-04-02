@@ -31,20 +31,29 @@ public abstract class Payload {
     public Text pldText;
     public TextUser pldTXX;
 
-    protected short StreamStart;
-    protected short Length;
+    protected long StreamStart;
+    protected long Length;
     protected Reader Reader;
 
     public Object Data;
+    public Frame Owner;
 
-    public void Reset(){};
+    public void Reset(){
+        StreamStart =0;
+        Length =0;
+        Data = null;
+    };
     public abstract boolean Load(MemoryStream Stream);
 
-    Payload(Reader reader) {
+    Payload(Frame owner, Reader reader) {
+        Owner = owner;
+        Data=null;
         Reader = reader;
     }
 
     public void Release(){
+        Owner = null;
+        Data =null;
         Reader = null;
     }
 

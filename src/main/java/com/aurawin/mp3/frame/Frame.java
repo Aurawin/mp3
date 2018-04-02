@@ -15,16 +15,32 @@ public abstract class Frame {
 
     public long AggregateLength;
 
-    public void Reset(){}
+    public void Reset(){
+        ID = "";
+
+        Position=0;
+        Length=0;
+        Preloaded=false;
+        AggregateLength=0;
+        Header.Reset();
+        Payload.Reset();
+    }
 
     public abstract void Preload(MemoryStream Stream);
     public abstract boolean Load(MemoryStream Stream );
 
-    Frame (Kind kind, Reader reader){
+    public Frame (Kind kind, Reader reader){
         Reader = reader;
         Kind = kind;
     }
 
 
+    public void Release(){
+        Reader = null;
+        if (Header!=null) Header.Release();
+        if (Payload!=null) Payload.Release();
 
+        Header = null;
+        Payload = null;
+    }
 }
