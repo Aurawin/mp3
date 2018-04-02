@@ -3,6 +3,7 @@ package com.aurawin.mp3.frame;
 import com.aurawin.core.stream.MemoryStream;
 import com.aurawin.mp3.UniqueFileId;
 import com.aurawin.mp3.UnsynchronizedTranscript;
+import com.aurawin.mp3.frame.tag.process.Processor;
 import com.aurawin.mp3.payload.*;
 
 public abstract class Payload {
@@ -30,10 +31,11 @@ public abstract class Payload {
     public UnsynchronizedTranscript pldULT;
     public Text pldText;
     public TextUser pldTXX;
+    public Processor Processor;
 
     protected long StreamStart;
-    protected long Length;
-    protected Reader Reader;
+    public long Length;
+    public Reader Reader;
 
     public Object Data;
     public Frame Owner;
@@ -45,7 +47,7 @@ public abstract class Payload {
     };
     public abstract boolean Load(MemoryStream Stream);
 
-    Payload(Frame owner, Reader reader) {
+    public Payload(Frame owner, Reader reader) {
         Owner = owner;
         Data=null;
         Reader = reader;

@@ -5,11 +5,11 @@ import com.aurawin.core.stream.MemoryStream;
 public abstract class Header {
     public String ID = "";
     public long Size;
-    protected Frame Owner;
-    protected String Name;
-    protected byte VersionMajor;
-    protected byte VersionMinor;
-    protected Reader Reader;
+    public Frame Owner;
+    public String Name;
+    public byte VersionMajor;
+    public byte VersionMinor;
+    public  Reader Reader;
     public long StreamStart;
     public  short Length;
 
@@ -22,8 +22,8 @@ public abstract class Header {
         StreamStart=0;
     };
     public abstract boolean Load(MemoryStream Stream);
-    public Frame getFrame(){ return Owner;};
-    Header(Frame owner, Reader reader){
+
+    public Header(Frame owner, Reader reader){
         VersionMajor =0;
         VersionMinor = 0;
 

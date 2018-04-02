@@ -1,8 +1,9 @@
 package com.aurawin.mp3.frame.tag;
 
 import com.aurawin.core.stream.MemoryStream;
+import com.aurawin.mp3.frame.Frame;
 import com.aurawin.mp3.frame.Header;
-
+import com.aurawin.mp3.frame.Reader;
 public class ID3V20Header extends Header {
 
 
@@ -16,12 +17,16 @@ public class ID3V20Header extends Header {
         boolean Loaded = false;
         // Assume that position @ TAG
 
-        Stream.Read(ID,3);
-        Stream.Read(Size,3);
+        ID = Stream.readString(3);
+        Size = Stream.readWhole(3);
         Name=ID;
-        Length=Size;
+        Length=(short) Size;
         Loaded=(ID.length()>=3);
 
         return Loaded;
+    }
+
+    public ID3V20Header(Frame owner, Reader reader) {
+        super(owner,reader);
     }
 }
