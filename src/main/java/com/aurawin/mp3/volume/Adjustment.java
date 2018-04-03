@@ -1,12 +1,12 @@
 package com.aurawin.mp3.volume;
 
 public enum Adjustment {
-    Decrement (0),
-    Increment (1);
+    Decrement ((byte) 0),
+    Increment ((byte) 1);
 
-    private final int Value;
-    public int getValue(){return Value;}
+    private final byte Value;
+    public byte getValue(){return Value;}
 
-    Adjustment(int value) {Value = value;}
+    Adjustment(byte value) {Value = value;}
 
 }

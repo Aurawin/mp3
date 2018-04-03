@@ -1,6 +1,6 @@
 package com.aurawin.mp3;
 
 public class EventItem {
-    TimeStampKind Kind;
-    int Stamp;
+    public TimeStampKind Kind;
+    public int Stamp;
 }

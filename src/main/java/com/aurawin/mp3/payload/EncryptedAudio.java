@@ -1,9 +1,9 @@
 package com.aurawin.mp3.payload;
 
 public class EncryptedAudio {
-     String Owner;
-     short PreviewStart;
-     short PreviewLength;
-     byte[] Data;
+     public String Owner;
+     public short PreviewStart;
+     public short PreviewLength;
+     public byte[] Data;
 }
 

@@ -3,10 +3,10 @@ package com.aurawin.mp3.payload;
 import java.util.ArrayList;
 
 public class Location {
-    byte[] MPEGFrames = new byte[3];
-    byte[] BytesBetween = new byte[3];
-    byte[] MillisecondsBetween = new byte[3];
-    byte BitsForBytesDeviation;
-    byte BitsForFramesDeviation;
-    ArrayList<LocationDeviation>References = new ArrayList<>();
+    public short MPEGFrames ;
+    public int BytesBetween;
+    public int MillisecondsBetween;
+    public byte BitsForBytesDeviation;
+    public byte BitsForFramesDeviation;
+    public ArrayList<LocationDeviation>References = new ArrayList<>();
 }

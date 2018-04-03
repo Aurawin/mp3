@@ -22,7 +22,6 @@ public class COM extends Processor implements Process {
             case UTF8 : {
                 Owner.pldCOM.Language=Stream.readString(3,"UTF-8");
                 Owner.pldCOM.Description=Stream.readStringUntil((byte) 0,Stream.Position,"UTF-8");
-                Stream.Position+=1;
                 int len=(int) ( (Owner.StreamStart+Owner.Length)-Stream.Position);
                 Owner.pldCOM.Text=Stream.readString(len,"UTF-8");
                 return true;
@@ -30,7 +29,6 @@ public class COM extends Processor implements Process {
             case ISO8859_1 : {
                 Owner.pldCOM.Language=Stream.readString(3,"ISO-8859-1");
                 Owner.pldCOM.Description=Stream.readStringUntil((byte) 0,Stream.Position,"ISO-8859-1");
-                Stream.Position+=1;
                 int len=(int) ((Owner.StreamStart+Owner.Length)-Stream.Position);
                 Owner.pldCOM.Text=Stream.readString(len,"ISO-8859-1");
                 return true;
@@ -39,7 +37,6 @@ public class COM extends Processor implements Process {
             case UTF16 : {
                 Owner.pldCOM.Language=Stream.readString(3,"UTF-16");
                 Owner.pldCOM.Description=Stream.readStringUntil((byte) 0,Stream.Position,"UTF-16");
-                Stream.Position+=1;
                 int len=(int) ((Owner.StreamStart+Owner.Length)-Stream.Position);
                 Owner.pldCOM.Text=Stream.readString(len,"UTF-16");
                 return true;
@@ -47,7 +44,6 @@ public class COM extends Processor implements Process {
             case UTF16BE : {
                 Owner.pldCOM.Language=Stream.readString(3,"UTF-16BE");
                 Owner.pldCOM.Description=Stream.readStringUntil((byte)0,Stream.Position,"UTF-16BE");
-                Stream.Position+=1;
                 int len=(int) ((Owner.StreamStart+Owner.Length)-Stream.Position);
                 Owner.pldCOM.Text=Stream.readString(len,"UTF-16BE");
                 return true;

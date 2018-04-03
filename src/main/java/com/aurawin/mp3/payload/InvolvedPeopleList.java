@@ -6,6 +6,6 @@ import java.util.HashMap;
 import java.util.Hashtable;
 
 public class InvolvedPeopleList {
-    TextEncoding Encoding;
-    HashMap<String,String> Payload;
+    public TextEncoding Encoding;
+    public HashMap<String,String> Payload;
 }

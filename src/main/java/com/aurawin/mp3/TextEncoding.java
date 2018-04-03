@@ -19,4 +19,13 @@ public enum TextEncoding {
         }
         return null;
     }
+    public String toEncoding(){
+        switch(this){
+            case ISO8859_1: return "ISO-8859-1";
+            case UTF8: return "UTF-8";
+            case UTF16: return "UTF-16";
+            case UTF16BE: return "UTF-16BE";
+        }
+        return "UTF-8";
+    }
 }

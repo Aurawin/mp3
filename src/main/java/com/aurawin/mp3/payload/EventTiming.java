@@ -6,6 +6,6 @@ import com.aurawin.mp3.TimeStampFormat;
 import java.util.ArrayList;
 
 public class EventTiming {
-    TimeStampFormat Format;
-    ArrayList<EventItem> Events;
+    public TimeStampFormat Format;
+    public ArrayList<EventItem> Events;
 }
