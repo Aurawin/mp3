@@ -29,6 +29,13 @@ public abstract class Payload {
     public Tempo pldSTC;
     public URLUser pldWXX;
     public URL pldURL;
+    public URL pldWAF;
+    public URL pldWAR;
+    public URL pldWAS;
+    public URL pldWCM;
+    public URL pldWCP;
+    public URL pldWPB;
+
     public UniqueFileId pldUFI;
     public UnsynchronizedTranscript pldULT;
     public Text pldText;
