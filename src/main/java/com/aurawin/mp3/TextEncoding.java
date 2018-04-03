@@ -9,4 +9,14 @@ public enum TextEncoding {
     TextEncoding(int value){ Value = value;}
     private final int Value;
     public int getValue(){return Value;}
+    public TextEncoding fromByte(byte input){
+
+        switch (this){
+            case ISO8859_1: return ISO8859_1;
+            case UTF8: return UTF8;
+            case UTF16: return UTF16;
+            case UTF16BE: return UTF16BE;
+        }
+        return null;
+    }
 }

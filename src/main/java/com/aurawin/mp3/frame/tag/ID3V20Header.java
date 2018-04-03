@@ -17,7 +17,7 @@ public class ID3V20Header extends Header {
         boolean Loaded = false;
         // Assume that position @ TAG
 
-        ID = Stream.readString(3);
+        ID = Stream.readString(3, "UTF8");
         Size = Stream.readWhole(3);
         Name=ID;
         Length=(short) Size;

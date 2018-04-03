@@ -48,7 +48,7 @@
         <dependency>
             <groupId>com.aurawin</groupId>
             <artifactId>core</artifactId>
-            <version>2018.4.2.5</version>
+            <version>2018.4.2.7</version>
         </dependency>
     </dependencies>
     <profiles>

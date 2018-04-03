@@ -6,6 +6,8 @@ import com.aurawin.mp3.UnsynchronizedTranscript;
 import com.aurawin.mp3.frame.tag.process.Processor;
 import com.aurawin.mp3.payload.*;
 
+import java.util.HashMap;
+
 public abstract class Payload {
     public BufferSize pldBUF;
     public PlayCounter pldCNT;
@@ -31,14 +33,15 @@ public abstract class Payload {
     public UnsynchronizedTranscript pldULT;
     public Text pldText;
     public TextUser pldTXX;
-    public Processor Processor;
 
-    protected long StreamStart;
+
+    public long StreamStart;
     public long Length;
     public Reader Reader;
 
     public Object Data;
     public Frame Owner;
+    public HashMap<String,Processor>Processors = new HashMap<>();
 
     public void Reset(){
         StreamStart =0;

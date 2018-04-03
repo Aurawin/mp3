@@ -5,16 +5,16 @@ import com.aurawin.mp3.frame.Payload;
 
 import java.util.HashMap;
 
-public class Processor implements Process{
-    public HashMap<String,Process> List = new HashMap<>();
+public abstract class Processor implements Process{
+    public String Key;
+
     public Payload Owner;
-    public Processor(Payload owner) {
+    public Processor(String key, Payload owner) {
+        Key = key;
         Owner = owner;
+        Owner.Processors.put(Key, this);
     }
-    @Override
-    public boolean process(String Key, MemoryStream Stream){
-        Process p = List.get(Key);
-        return (p!=null) ? p.process(Key,Stream) : false;
-    }
+
+    public abstract boolean process(MemoryStream Stream);
 
 }
