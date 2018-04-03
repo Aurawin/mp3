@@ -8,10 +8,10 @@ import com.aurawin.mp3.TimeStampFormat;
 import java.util.ArrayList;
 
 public class SyncronizedTranscript {
-    TextEncoding Encoding;
-    String Language;
-    TimeStampFormat Format;
-    TextContentType ContentType;
-    String Description;
-    ArrayList<SynchronizedText> List = new ArrayList<>();
+    public TextEncoding Encoding;
+    public String Language;
+    public TimeStampFormat Format;
+    public TextContentType ContentType;
+    public String Description;
+    public ArrayList<SynchronizedText> List = new ArrayList<>();
 }

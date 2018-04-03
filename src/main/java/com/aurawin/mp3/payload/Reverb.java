@@ -1,14 +1,14 @@
 package com.aurawin.mp3.payload;
 
 public class Reverb {
-    short Left;
-    short Right;
-    byte BouncesLeft;
-    byte BouncesRight;
-    byte FeedbackLeftToLeft;
-    byte FeedbackLeftToRight;
-    byte FeedbackRightToRight;
-    byte FeedbackRightToLeft;
-    byte PremixLeftToRight;
-    byte PremixRightToLeft;
+    public short Left;
+    public short Right;
+    public byte BouncesLeft;
+    public byte BouncesRight;
+    public byte FeedbackLeftToLeft;
+    public byte FeedbackLeftToRight;
+    public byte FeedbackRightToRight;
+    public byte FeedbackRightToLeft;
+    public byte PremixLeftToRight;
+    public byte PremixRightToLeft;
 }

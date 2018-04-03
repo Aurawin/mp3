@@ -13,4 +13,16 @@ public enum TextContentType {
     private final int Value;
     public int getValue(){return Value;}
 
+    public TextContentType fromByte(byte value){
+        switch (value){
+            case (0x0): return Other;
+            case (0x1): return Lyrics;
+            case (0x2): return Transcription;
+            case (0x3): return Movement;
+            case (0x4): return Events;
+            case (0x5): return Chord;
+        }
+        return null;
+    }
+
 }

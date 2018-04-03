@@ -4,9 +4,9 @@ import com.aurawin.mp3.PictureKind;
 import com.aurawin.mp3.TextEncoding;
 
 public class Picture {
-    TextEncoding Encoding;
-    char [] Format = new char[2];
-    PictureKind Kind;
-    String Description;
-    byte[] Data;
+    public TextEncoding Encoding;
+    public String Format;
+    public PictureKind Kind;
+    public String Description;
+    public byte[] Data;
 }
