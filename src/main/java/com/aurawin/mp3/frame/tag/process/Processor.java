@@ -12,7 +12,6 @@ public abstract class Processor implements Process{
     public Processor(String key, Payload owner) {
         Key = key;
         Owner = owner;
-        Owner.Processors.put(Key, this);
     }
 
     public abstract boolean process(MemoryStream Stream);

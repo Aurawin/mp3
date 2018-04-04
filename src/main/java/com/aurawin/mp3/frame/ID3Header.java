@@ -13,19 +13,22 @@ public class ID3Header extends Header {
     public boolean Load(MemoryStream Stream){
 
         boolean handled = false;
+        VersionMajor=Stream.readByte();
+        VersionMinor=Stream.readByte();
+        Flags = Stream.readByte();
+        Size = Stream.Read(4);
+        Length = (Size[0] << 24) + (Size[1] << 16) + (Size[2]<<8) + Size[3];
+        Reader.TagFrame=null;
 
-        class Version2 {
-            void pushVersion2() {
-                switch (VersionMinor) {
-                    case (0):
+        switch (VersionMinor) {
+            case (0):
                     Reader.TagFrame=Reader.ID3V20Tag;
                     break;
-                    case (3):
+            case (3):
                     Reader.TagFrame=Reader.ID3V23Tag;
                     break;
-                }
-            }
         }
+        handled=Reader.TagFrame!=null;
 
         return handled;
     }

@@ -1,18 +1,23 @@
 package com.aurawin.mp3.frame;
 
 import com.aurawin.core.stream.MemoryStream;
+import com.aurawin.mp3.frame.tag.process.Processor;
+
+import java.util.ArrayList;
 
 public abstract class Frame {
+    public ArrayList<Processor> Processors = new ArrayList<>();
 
-    String ID;
-    protected boolean Preloaded;
+    public String ID;
+    public boolean Preloaded;
+
     public Header Header;
     public Payload Payload;
 
     public Kind Kind;
     public  Reader Reader;
     public long Position;
-    public  short Length;
+    public  long Length;
 
     public long AggregateLength;
 
@@ -23,6 +28,7 @@ public abstract class Frame {
         Length=0;
         Preloaded=false;
         AggregateLength=0;
+
         Header.Reset();
         Payload.Reset();
     }
@@ -35,7 +41,9 @@ public abstract class Frame {
         Kind = kind;
     }
 
-
+    public Processor getProcessor(String key){
+        return Processors.stream().filter(p->p.Key.equalsIgnoreCase(key)).findFirst().orElse(null);
+    }
     public void Release(){
         Reader = null;
         if (Header!=null) Header.Release();

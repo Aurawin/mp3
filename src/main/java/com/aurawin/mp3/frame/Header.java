@@ -11,7 +11,7 @@ public abstract class Header {
     public byte VersionMinor;
     public  Reader Reader;
     public long StreamStart;
-    public  short Length;
+    public  long Length;
 
     public void Reset(){
         VersionMajor =0;

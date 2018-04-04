@@ -6,7 +6,7 @@
 
     <groupId>com.aurawin</groupId>
     <artifactId>mp3</artifactId>
-    <version>2018.3.31.1</version>
+    <version>2018.4.4.1</version>
     <scm>
         <connection>scm:svn:http://127.0.0.1/dummy</connection>
         <developerConnection>scm:svn:https://127.0.0.1/dummy</developerConnection>
@@ -48,7 +48,7 @@
         <dependency>
             <groupId>com.aurawin</groupId>
             <artifactId>core</artifactId>
-            <version>2018.4.2.7</version>
+            <version>2018.4.4.2</version>
         </dependency>
     </dependencies>
     <profiles>

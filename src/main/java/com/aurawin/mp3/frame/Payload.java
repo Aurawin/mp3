@@ -48,7 +48,6 @@ public abstract class Payload {
 
     public Object Data;
     public Frame Owner;
-    public HashMap<String,Processor>Processors = new HashMap<>();
 
     public void Reset(){
         StreamStart =0;

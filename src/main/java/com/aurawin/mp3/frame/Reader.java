@@ -5,11 +5,11 @@ import com.aurawin.mp3.frame.tag.ID3V20;
 import com.aurawin.mp3.frame.tag.ID3V23;
 import com.aurawin.mp3.frame.tag.ID3V30;
 import com.aurawin.mp3.frame.tag.ID3V40;
-
+import com.aurawin.mp3.frame.tag.Event;
 public class Reader {
 
     public short FrameCount;
-    protected MemoryStream Refactor;
+
     public long AggregateLength;
     public long StreamSize;
     public long StreamPosition;
@@ -29,7 +29,7 @@ public class Reader {
     public ID3V40 ID3V40Tag;
     // Generic Frame Pointers
     public  Frame TagFrame;
-    public com.aurawin.mp3.frame.tag.Event OnTagFrame;
+    public Event OnTagFrame;
 
     public void LoadAll(MemoryStream Stream){};
     public void  LoadFirst(MemoryStream Stream){};
@@ -37,8 +37,12 @@ public class Reader {
     public void Release(){
 
     }
-
+    public void setTagFrameEvent(Event evt){
+        OnTagFrame=evt;
+    }
     Reader(){
+        ID3Frame = new com.aurawin.mp3.frame.ID3(Kind.fID3, this);
+        ID3V20Tag = new com.aurawin.mp3.frame.tag.ID3V20(this);
 
     }
 

@@ -22,7 +22,7 @@ public class ID3V20Payload extends Payload {
 
     @Override
     public boolean Load(MemoryStream Stream) {
-        Processor p = Processors.get(Owner.Header.ID);
+        Processor p = Owner.getProcessor(Owner.Header.ID);
         if (p!=null) {
             return p.process(Stream);
         } else {
