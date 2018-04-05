@@ -21,32 +21,41 @@ public class ID3Test {
                     public void Handle(Frame Main, Frame TagFrame) {
                         switch(TagFrame.Kind){
                             case fTitle:
+                                System.out.println(TagFrame.Payload.pldText.Data);
                                 assert(TagFrame.Payload.pldText.Data.equals("Summer 2009"));
                                 break;
                             case fTitleDescription :
+                                System.out.println(TagFrame.Payload.pldText.Data);
                                 assert(TagFrame.Payload.pldText.Data.equals("Emanual"));
                                 break;
                             case fLeadArtist:
+                                System.out.println(TagFrame.Payload.pldText.Data);
                                 assert(TagFrame.Payload.pldText.Data.equals("VBS"));
                                 break;
                             case fTrackNumber:
+                                System.out.println(TagFrame.Payload.pldText.Data);
                                 assert(TagFrame.Payload.pldText.Data.equals("3/4"));
                                 break;
                             case fYear:
+                                System.out.println(TagFrame.Payload.pldText.Data);
                                 assert(TagFrame.Payload.pldText.Data.equals("2005"));
                                 break;
                             case fContentType:
+                                System.out.println(TagFrame.Payload.pldText.Data);
                                 assert(TagFrame.Payload.pldText.Data.equals("Christian"));
                                 break;
                             case fComments:
+                                System.out.println(TagFrame.Payload.pldCOM.Description);
                                 TagFrame.Payload.pldCOM.Description="iTunPGAP";
                                 TagFrame.Payload.pldCOM.Language="eng";
                                 TagFrame.Payload.pldCOM.Text="0";
                                 break;
                             case fEncodedBy:
+                                System.out.println(TagFrame.Payload.pldText.Data);
                                 assert(TagFrame.Payload.pldText.Data.equalsIgnoreCase("iTunes 11.0.4.4"));
                                 break;
                             case fUniqueFileID:
+                                System.out.println(TagFrame.Payload.pldText.Data);
                                 assert(TagFrame.Payload.pldUFI.Owner.equals("http://www.cddb.com/id3/taginfo1.html"));
                                 break;
 

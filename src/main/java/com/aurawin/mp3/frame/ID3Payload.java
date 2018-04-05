@@ -9,21 +9,15 @@ public class ID3Payload extends Payload {
     private void loadWithNoCallback(MemoryStream Stream){
         boolean bLoopOk=true;
 
-        while (bLoopOk && (Reader.StreamPosition<StreamStart+Length) && (Stream.Position<Stream.Size)) {
-            bLoopOk=Reader.TagFrame.Load(Stream);
-            if (bLoopOk){
-                Reader.StreamPosition=Stream.Position;
-            }
+        while ((Reader.StreamPosition<StreamStart+Length) && (Stream.Position<Stream.Size)) {
+            Reader.TagFrame.Load(Stream);
 
         }
     }
     private void loadWithCallback(MemoryStream Stream){
-        boolean bLoopOk=true;
+        while ( (Stream.Position<StreamStart+Length) && (Stream.Position<Stream.Size)) {
+            if (Reader.TagFrame.Load(Stream)){
 
-        while (bLoopOk && (Reader.StreamPosition<StreamStart+Length) && (Stream.Position<Stream.Size)) {
-            bLoopOk=Reader.TagFrame.Load(Stream);
-            if (bLoopOk){
-                Reader.StreamPosition=Stream.Position;
                 Reader.OnTagFrame.Handle(Owner,Reader.TagFrame);
             }
 

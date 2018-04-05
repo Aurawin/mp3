@@ -23,10 +23,19 @@ public class ID3V20Payload extends Payload {
     @Override
     public boolean Load(MemoryStream Stream) {
         Processor p = Owner.getProcessor(Owner.Header.ID);
-        if (p!=null) {
-            return p.process(Stream);
+        boolean r = (p!=null);
+        if (r) {
+            Owner.Reader.StreamPosition=Stream.Position;
+            r = p.process(Stream);
+            if (!r){
+                Stream.Position=Owner.Header.StreamStart+Owner.Header.Length;
+            }
+            return r;
         } else {
+            Owner.Reader.StreamPosition=Stream.Position;
             return false;
         }
+
+
     }
 }

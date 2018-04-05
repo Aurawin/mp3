@@ -4,7 +4,6 @@ import com.aurawin.core.stream.MemoryStream;
 
 public abstract class Header {
     public String ID = "";
-    public long Size;
     public Frame Owner;
     public String Name;
     public byte VersionMajor;
@@ -12,12 +11,12 @@ public abstract class Header {
     public  Reader Reader;
     public long StreamStart;
     public  long Length;
+    public  byte Flags;
 
     public void Reset(){
         VersionMajor =0;
         VersionMinor =0;
         Length =0;
-        Size = 0;
         ID = "";
         StreamStart=0;
     };
