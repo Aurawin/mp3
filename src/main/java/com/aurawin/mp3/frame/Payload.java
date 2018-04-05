@@ -29,13 +29,6 @@ public abstract class Payload {
     public Tempo pldSTC;
     public URLUser pldWXX;
     public URL pldURL;
-    public URL pldWAF;
-    public URL pldWAR;
-    public URL pldWAS;
-    public URL pldWCM;
-    public URL pldWCP;
-    public URL pldWPB;
-
     public UniqueFileId pldUFI;
     public UnsynchronizedTranscript pldULT;
     public Text pldText;
@@ -60,6 +53,32 @@ public abstract class Payload {
         Owner = owner;
         Data=null;
         Reader = reader;
+
+        pldBUF= new BufferSize();
+        pldCNT = new PlayCounter();
+        pldCOM = new Comment();
+        pldCRA = new EncryptedAudio();
+        pldCRM = new EncryptedMeta();
+        pldETC=new EventTiming();
+        pldEQU= new Equalization();
+        pldGEO=new EncapsulatedObject();
+        pldIPL= new InvolvedPeopleList();
+        pldLNK=new LinkedInfo();
+        pldMCI= new Musicidentifier();
+        pldMLL= new Location();
+        pldPIC= new Picture();
+        pldPOP= new Popularimeter();
+        pldREV= new Reverb();
+        pldRVA= new RelativeVolume();
+        pldSLT= new SyncronizedTranscript();
+        pldSTC= new Tempo();
+        pldWXX= new URLUser();
+        pldURL= new URL();
+
+        pldUFI= new UniqueFileId();
+        pldULT = new UnsynchronizedTranscript();
+        pldText= new Text();
+        pldTXX= new TextUser();
     }
 
     public void Release(){

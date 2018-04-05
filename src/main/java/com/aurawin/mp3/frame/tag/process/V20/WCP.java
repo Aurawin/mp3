@@ -11,9 +11,9 @@ public class WCP extends Processor implements Process {
     public boolean process( MemoryStream Stream){
         Owner.Length=Owner.Reader.TagFrame.Header.Length;
         Owner.StreamStart=Stream.Position;
-        Owner.Data=Owner.pldWCP;
+        Owner.Data=Owner.pldURL;
         Owner.Reader.TagFrame.Kind=fCopyrightInfo;
-        Owner.pldWCP.URL = Stream.readString((int)(Owner.Length-(Stream.Position-Owner.StreamStart)), Owner.pldText.Encoding.toEncoding());
+        Owner.pldURL.URL = Stream.readString((int)(Owner.Length-(Stream.Position-Owner.StreamStart)), Owner.pldText.Encoding.toEncoding());
 
         return true;
     }

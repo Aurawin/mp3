@@ -12,9 +12,9 @@ public class WCM extends Processor implements Process {
     public boolean process( MemoryStream Stream){
         Owner.Length=Owner.Reader.TagFrame.Header.Length;
         Owner.StreamStart=Stream.Position;
-        Owner.Data=Owner.pldWCM;
+        Owner.Data=Owner.pldURL;
         Owner.Reader.TagFrame.Kind=fCommericalInfo;
-        Owner.pldWCM.URL = Stream.readString((int)(Owner.Length-(Stream.Position-Owner.StreamStart)), Owner.pldText.Encoding.toEncoding());
+        Owner.pldURL.URL = Stream.readString((int)(Owner.Length-(Stream.Position-Owner.StreamStart)), Owner.pldText.Encoding.toEncoding());
 
         return true;
     }

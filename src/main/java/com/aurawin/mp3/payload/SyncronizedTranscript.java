@@ -7,8 +7,10 @@ import com.aurawin.mp3.TimeStampFormat;
 
 import java.util.ArrayList;
 
+import static com.aurawin.mp3.TextEncoding.UTF8;
+
 public class SyncronizedTranscript {
-    public TextEncoding Encoding;
+    public TextEncoding Encoding = UTF8;
     public String Language;
     public TimeStampFormat Format;
     public TextContentType ContentType;

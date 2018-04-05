@@ -2,6 +2,7 @@ package com.aurawin.mp3.frame;
 
 import com.aurawin.core.stream.MemoryStream;
 import com.aurawin.mp3.frame.tag.process.Processor;
+import com.aurawin.mp3.payload.Text;
 
 public class ID3Payload extends Payload {
 
@@ -23,7 +24,7 @@ public class ID3Payload extends Payload {
             bLoopOk=Reader.TagFrame.Load(Stream);
             if (bLoopOk){
                 Reader.StreamPosition=Stream.Position;
-                Reader.OnTagFrame.Handle(Owner,null,Stream);
+                Reader.OnTagFrame.Handle(Owner,Reader.TagFrame);
             }
 
         }
@@ -47,6 +48,5 @@ public class ID3Payload extends Payload {
 
     ID3Payload(ID3 owner, Reader reader){
         super(owner, reader);
-
     }
 }
