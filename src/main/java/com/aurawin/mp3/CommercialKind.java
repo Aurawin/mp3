@@ -14,4 +14,20 @@ public enum CommercialKind {
     private final int Value;
     public int getValue(){ return Value;}
     CommercialKind(int value){ Value = value;}
+
+    public CommercialKind fromByte(byte val){
+        switch (val) {
+            case :
+                0 : return Other;
+                1 : return StandardCDAlbum;
+                2: return CompressedAudio;
+                3: return FileOverInternet;
+                4: return InternetStream;
+                5: return NoteSheets;
+                6: return NoteSheetsInBook;
+                7: return MusicOnOtherMedia;
+                8: return NonMusicalMerchandise;
+        }
+        return null;
+    }
 }

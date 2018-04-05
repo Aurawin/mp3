@@ -15,5 +15,6 @@ public class Commercial {
     public String Seller;
     public String Description;
     public String MimeType;
+
     public byte[] Logo;
 }

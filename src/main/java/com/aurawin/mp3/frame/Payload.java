@@ -12,6 +12,7 @@ public abstract class Payload {
     public BufferSize pldBUF;
     public PlayCounter pldCNT;
     public Comment pldCOM;
+    public Commercial pldCOMR;
     public EncryptedAudio pldCRA;
     public EncryptedMeta pldCRM;
     public EventTiming pldETC;
@@ -57,6 +58,7 @@ public abstract class Payload {
         pldBUF= new BufferSize();
         pldCNT = new PlayCounter();
         pldCOM = new Comment();
+        pldCOMR = new Commercial();
         pldCRA = new EncryptedAudio();
         pldCRM = new EncryptedMeta();
         pldETC=new EventTiming();
