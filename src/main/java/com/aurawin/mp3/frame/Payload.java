@@ -17,6 +17,7 @@ public abstract class Payload {
     public EncryptedMeta pldCRM;
     public EventTiming pldETC;
     public Equalization pldEQU;
+    public EncryptedMethod pldENCR;
     public EncapsulatedObject pldGEO;
     public InvolvedPeopleList pldIPL;
     public LinkedInfo pldLNK;
@@ -62,6 +63,7 @@ public abstract class Payload {
         pldCRA = new EncryptedAudio();
         pldCRM = new EncryptedMeta();
         pldETC=new EventTiming();
+        pldENCR = new EncryptedMethod();
         pldEQU= new Equalization();
         pldGEO=new EncapsulatedObject();
         pldIPL= new InvolvedPeopleList();

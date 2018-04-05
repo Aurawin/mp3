@@ -1,4 +1,4 @@
-package com.aurawin.mp3.frame.tag.process.v20;
+package com.aurawin.mp3.frame.tag.process.v23;
 
 import com.aurawin.core.stream.MemoryStream;
 import com.aurawin.mp3.EventItem;
@@ -6,16 +6,17 @@ import com.aurawin.mp3.frame.Payload;
 import com.aurawin.mp3.frame.tag.process.Process;
 import com.aurawin.mp3.frame.tag.process.Processor;
 
+import static com.aurawin.mp3.frame.Kind.fEncryption;
 import static com.aurawin.mp3.frame.Kind.fEventTimingCodes;
 
-public class ETC extends Processor implements Process {
-
+public class ETCO extends Processor implements Process {
     @Override
-    public boolean process(MemoryStream Stream) {
+    public boolean process( MemoryStream Stream){
+        Owner.Length=Owner.Reader.TagFrame.Header.Length;
+        Owner.StreamStart=Stream.Position;
         Owner.Data=Owner.pldETC;
         Owner.Reader.TagFrame.Kind=fEventTimingCodes;
-        Owner.Reader.StreamPosition=Stream.Position;
-        Owner.Length=Owner.Reader.TagFrame.Header.Length;
+
         long iStop=Owner.Reader.StreamPosition+Owner.Length;
         Owner.pldETC.Format = Owner.pldETC.Format.fromByte(Stream.readByte());
 
@@ -29,7 +30,7 @@ public class ETC extends Processor implements Process {
         return true;
     }
 
-    public ETC(Payload owner) {
-        super("ETC", owner);
+    public ETCO(Payload owner) {
+        super("ETCO",owner);
     }
 }

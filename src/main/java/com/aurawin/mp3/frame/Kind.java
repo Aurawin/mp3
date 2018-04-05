@@ -106,7 +106,8 @@ public enum Kind {
     fPodcast ("Podcast"),                                                    // 102
     fPodcastDescription ("Podcast Description"),                             // 103
     fPodcastFeed ("Podcast Feed"),                                           // 104
-    fPodcastID ("Podcast ID") ;                                              // 105
+    fPodcastID ("Podcast ID"),                                               // 105
+    fEncryption("Encryption");                                               // 106
 
     Kind(String value){ Value = value;}
     private final String Value;

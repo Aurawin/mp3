@@ -17,16 +17,16 @@ public enum CommercialKind {
 
     public CommercialKind fromByte(byte val){
         switch (val) {
-            case :
-                0 : return Other;
-                1 : return StandardCDAlbum;
-                2: return CompressedAudio;
-                3: return FileOverInternet;
-                4: return InternetStream;
-                5: return NoteSheets;
-                6: return NoteSheetsInBook;
-                7: return MusicOnOtherMedia;
-                8: return NonMusicalMerchandise;
+
+            case 0 : return Other;
+            case 1 : return StandardCDAlbum;
+            case 2: return CompressedAudio;
+            case 3: return FileOverInternet;
+            case 4: return InternetStream;
+            case 5: return NoteSheets;
+            case 6: return NoteSheetsInBook;
+            case 7: return MusicOnOtherMedia;
+            case 8: return NonMusicalMerchandise;
         }
         return null;
     }

@@ -16,13 +16,13 @@ public class COMR extends Processor implements Process {
         Owner.Reader.TagFrame.Kind=fCommericalInfo;
         Owner.StreamStart=Stream.Position;
         Owner.pldCOMR.Encoding=Owner.pldCOM.Encoding.fromByte(Stream.readByte());
-        Owner.pldCOMR.Price=Stream.readStringUntil(0,Stream.Position,Owner.pldCOMR.Encoding.toEncoding());
-        Owner.pldCOMR.Expires=Stream.readStringUntil(0,Stream.Position,Owner.pldCOMR.Encoding.toEncoding());
-        Owner.pldCOMR.Contact=Stream.readStringUntil(0,Stream.Position,Owner.pldCOMR.Encoding.toEncoding());
+        Owner.pldCOMR.Price=Stream.readStringUntil((byte)0,Stream.Position,Owner.pldCOMR.Encoding.toEncoding());
+        Owner.pldCOMR.Expires=Stream.readStringUntil((byte)0,Stream.Position,Owner.pldCOMR.Encoding.toEncoding());
+        Owner.pldCOMR.Contact=Stream.readStringUntil((byte)0,Stream.Position,Owner.pldCOMR.Encoding.toEncoding());
         Owner.pldCOMR.Kind=Owner.pldCOMR.Kind.fromByte(Stream.readByte());
-        Owner.pldCOMR.Seller=Stream.readStringUntil(0,Stream.Position,Owner.pldCOMR.Encoding.toEncoding());
-        Owner.pldCOMR.Description=Stream.readStringUntil(0,Stream.Position,Owner.pldCOMR.Encoding.toEncoding());
-        Owner.pldCOMR.MimeType=Stream.readStringUntil(0,Stream.Position,Owner.pldCOMR.Encoding.toEncoding());
+        Owner.pldCOMR.Seller=Stream.readStringUntil((byte)0,Stream.Position,Owner.pldCOMR.Encoding.toEncoding());
+        Owner.pldCOMR.Description=Stream.readStringUntil((byte)0,Stream.Position,Owner.pldCOMR.Encoding.toEncoding());
+        Owner.pldCOMR.MimeType=Stream.readStringUntil((byte)0,Stream.Position,Owner.pldCOMR.Encoding.toEncoding());
         Owner.pldCOMR.Logo = Stream.Read((int)(Owner.Length-(Stream.Position-Owner.StreamStart)));
         return true;
 

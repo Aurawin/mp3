@@ -5,6 +5,7 @@ public enum TextEncoding {
     UTF16 (0x1),
     UTF16BE (0x2),
     UTF8 (0x3);
+    public static final TextEncoding Base = UTF8;
 
     TextEncoding(int value){ Value = value;}
     private final int Value;
