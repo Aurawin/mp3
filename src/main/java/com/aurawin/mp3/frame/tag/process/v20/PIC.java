@@ -25,7 +25,10 @@ public class PIC extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public PIC(Payload owner) {
         super("PIC", owner);
     }

@@ -22,7 +22,10 @@ public class ULT extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public ULT(Payload owner) {
         super("ULT",owner);
     }

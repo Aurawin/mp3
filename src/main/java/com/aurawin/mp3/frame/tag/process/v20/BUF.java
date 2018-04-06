@@ -18,7 +18,10 @@ public class BUF extends Processor implements Process{
         Owner.Length = Owner.Reader.TagFrame.Header.Length;
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public BUF(Payload owner) {
         super("BUF", owner);
     }

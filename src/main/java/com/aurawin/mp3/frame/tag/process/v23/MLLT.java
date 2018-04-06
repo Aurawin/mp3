@@ -1,4 +1,4 @@
-package com.aurawin.mp3.frame.tag.process.v20;
+package com.aurawin.mp3.frame.tag.process.v23;
 
 import com.aurawin.core.stream.MemoryStream;
 import com.aurawin.mp3.frame.Payload;
@@ -6,12 +6,13 @@ import com.aurawin.mp3.frame.tag.process.Process;
 import com.aurawin.mp3.frame.tag.process.Processor;
 import com.aurawin.mp3.payload.LocationDeviation;
 
+import static com.aurawin.mp3.frame.Kind.fMPEGLocationLookupTable;
 import static com.aurawin.mp3.frame.Kind.fMPEGtable;
+import static com.aurawin.mp3.frame.Kind.fMusicCDIdentifier;
 
-public class MLL extends Processor implements Process {
-
+public class MLLT extends Processor implements Process {
     @Override
-    public boolean process(MemoryStream Stream) {
+    public boolean process( MemoryStream Stream){
         Owner.Data=Owner.pldMLL;
         Owner.Reader.TagFrame.Kind=fMPEGtable;
         Owner.pldMLL.MPEGFrames=(short)Stream.readWhole((int)2);
@@ -32,7 +33,7 @@ public class MLL extends Processor implements Process {
     public void Reset(){
         Owner.pldMLL.References.clear();
     }
-    public MLL(Payload owner) {
-        super("MLL", owner);
+    public MLLT(Payload owner) {
+        super("MLLT",owner);
     }
 }

@@ -20,7 +20,10 @@ public class TRC extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public TRC(Payload owner) {
         super("TRC",owner);
     }

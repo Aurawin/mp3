@@ -1,6 +1,7 @@
 package com.aurawin.mp3.frame.tag.process.v23;
 
 import com.aurawin.core.stream.MemoryStream;
+import com.aurawin.mp3.TextEncoding;
 import com.aurawin.mp3.frame.Payload;
 import com.aurawin.mp3.frame.tag.process.Process;
 import com.aurawin.mp3.frame.tag.process.Processor;
@@ -16,12 +17,15 @@ public class ENCR extends Processor implements Process {
         Owner.Data=Owner.pldENCR;
         Owner.Reader.TagFrame.Kind=fEncryption;
 
-        Owner.pldENCR.Owner = Stream.readStringUntil((byte)0, Stream.Position, Owner.pldText.Encoding.toEncoding());
+        Owner.pldENCR.Owner = Stream.readStringUntil((byte)0, Stream.Position, TextEncoding.Base.toEncoding());
         Owner.pldENCR.Method= Stream.readByte();
         Owner.pldENCR.Data=Stream.Read((int)(Owner.Length-(Stream.Position-Owner.StreamStart)));
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public ENCR(Payload owner) {
         super("ENCR",owner);
     }

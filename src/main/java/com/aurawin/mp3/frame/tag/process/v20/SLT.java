@@ -29,11 +29,13 @@ public class SLT extends Processor implements Process {
             l.Stamp=Stream.readByte();
             Owner.pldSLT.List.add(l);
         }
-        Owner.pldPIC.Data=Stream.Read((int)(Owner.Length-(Stream.Position-Owner.StreamStart)));
 
         return true;
     }
-
+    @Override
+    public void Reset(){
+        Owner.pldSLT.List.clear();
+    }
     public SLT(Payload owner) {
         super("SLT", owner);
     }

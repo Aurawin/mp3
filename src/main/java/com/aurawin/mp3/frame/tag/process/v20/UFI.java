@@ -19,7 +19,10 @@ public class UFI extends Processor implements Process {
         Owner.pldUFI.Identifier=Stream.Read((int)(Owner.Length-(Stream.Position-Owner.StreamStart)));
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public UFI(Payload owner) {
         super("UFI",owner);
     }

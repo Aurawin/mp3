@@ -20,7 +20,10 @@ public class TOA extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public TOA(Payload owner) {
         super("TOA",owner);
     }

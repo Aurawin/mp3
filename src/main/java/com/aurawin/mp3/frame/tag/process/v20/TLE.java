@@ -20,7 +20,10 @@ public class TLE extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public TLE(Payload owner) {
         super("TLE",owner);
     }

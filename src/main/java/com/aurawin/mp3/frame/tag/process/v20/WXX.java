@@ -21,7 +21,10 @@ public class WXX extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public WXX(Payload owner) {
         super("WXX",owner);
     }

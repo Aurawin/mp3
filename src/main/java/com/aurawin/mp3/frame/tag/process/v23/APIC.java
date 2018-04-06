@@ -23,7 +23,10 @@ public class APIC extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public APIC(Payload owner) {
         super("APIC", owner);
     }

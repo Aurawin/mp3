@@ -20,7 +20,10 @@ public class TXT extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public TXT(Payload owner) {
         super("TXT",owner);
     }

@@ -20,7 +20,10 @@ public class STC extends Processor implements Process {
         Owner.pldSTC.Data=Stream.Read((int)(Owner.Length-(Stream.Position-Owner.StreamStart)));
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public STC(Payload owner) {
         super("STC", owner);
     }

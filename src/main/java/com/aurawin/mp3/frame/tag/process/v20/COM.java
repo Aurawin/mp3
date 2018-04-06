@@ -47,7 +47,10 @@ public class COM extends Processor implements Process {
         return false;
 
     }
+    @Override
+    public void Reset(){
 
+    }
     public COM(Payload owner) {
         super("COM", owner);
     }

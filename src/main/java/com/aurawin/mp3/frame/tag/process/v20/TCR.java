@@ -20,7 +20,10 @@ public class TCR extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public TCR(Payload owner) {
         super("TCR",owner);
     }

@@ -20,7 +20,10 @@ public class TOT extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public TOT(Payload owner) {
         super("TOT",owner);
     }

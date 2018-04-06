@@ -13,7 +13,7 @@ public abstract class Processor implements Process{
         Key = key;
         Owner = owner;
     }
-
+    public abstract void Reset();
     public abstract boolean process(MemoryStream Stream);
 
 }

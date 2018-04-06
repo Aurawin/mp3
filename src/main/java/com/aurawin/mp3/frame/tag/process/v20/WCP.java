@@ -17,7 +17,10 @@ public class WCP extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public WCP(Payload owner) {
         super("WCP",owner);
     }

@@ -4,4 +4,5 @@ import com.aurawin.core.stream.MemoryStream;
 
 public interface Process {
     boolean process(MemoryStream Stream);
+    void Reset();
 }

@@ -20,7 +20,10 @@ public class TOL extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public TOL(Payload owner) {
         super("TOL",owner);
     }

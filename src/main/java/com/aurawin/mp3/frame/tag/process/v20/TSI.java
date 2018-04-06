@@ -20,7 +20,10 @@ public class TSI extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public TSI(Payload owner) {
         super("TSI",owner);
     }

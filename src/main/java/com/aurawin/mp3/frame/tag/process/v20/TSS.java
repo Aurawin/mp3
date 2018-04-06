@@ -20,7 +20,10 @@ public class TSS extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public TSS(Payload owner) {
         super("TSS",owner);
     }

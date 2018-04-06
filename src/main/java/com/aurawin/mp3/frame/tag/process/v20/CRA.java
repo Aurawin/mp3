@@ -22,7 +22,10 @@ public class CRA extends Processor implements Process {
         Owner.Length=Owner.Reader.TagFrame.Header.Length;
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public CRA(Payload owner) {
         super("CRA", owner);
     }

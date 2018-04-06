@@ -20,7 +20,10 @@ public class TDA extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public TDA(Payload owner) {
         super("TDA",owner);
     }

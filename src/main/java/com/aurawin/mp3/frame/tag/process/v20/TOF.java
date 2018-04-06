@@ -20,7 +20,10 @@ public class TOF extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public TOF(Payload owner) {
         super("TOF",owner);
     }

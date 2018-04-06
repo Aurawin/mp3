@@ -16,7 +16,10 @@ public class CNT extends Processor implements Process {
         Owner.Length=Owner.Reader.TagFrame.Header.Length;
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public CNT(Payload owner) {
         super("CNT",owner);
     }

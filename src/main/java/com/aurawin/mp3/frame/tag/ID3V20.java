@@ -14,8 +14,8 @@ public class ID3V20 extends Frame {
 
         super(fID3V20,reader);
 
-        Header  = new ID3V20Header(this,reader);
-        Payload = new ID3V20Payload(this,reader);
+        Header  = new ID3V2Header(this,reader);
+        Payload = new ID3V2Payload(this,reader);
 
         Processors.add(new com.aurawin.mp3.frame.tag.process.v20.BUF(Payload));
         Processors.add(new com.aurawin.mp3.frame.tag.process.v20.CNT(Payload));

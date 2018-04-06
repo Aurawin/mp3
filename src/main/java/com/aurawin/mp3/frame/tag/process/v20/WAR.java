@@ -18,7 +18,10 @@ public class WAR extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public WAR(Payload owner) {
         super("WAR",owner);
     }

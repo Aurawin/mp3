@@ -18,7 +18,10 @@ public class WPB extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public WPB(Payload owner) {
         super("WPB",owner);
     }

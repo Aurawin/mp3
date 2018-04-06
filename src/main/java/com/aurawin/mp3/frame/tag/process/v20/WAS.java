@@ -18,7 +18,10 @@ public class WAS extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public WAS(Payload owner) {
         super("WAS",owner);
     }

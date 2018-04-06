@@ -20,7 +20,10 @@ public class TFT extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public TFT(Payload owner) {
         super("TFT",owner);
     }

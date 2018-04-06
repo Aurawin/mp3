@@ -18,6 +18,10 @@ public class URL extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
+
+    }
 
     public URL(Payload owner) {
         super("URL",owner);

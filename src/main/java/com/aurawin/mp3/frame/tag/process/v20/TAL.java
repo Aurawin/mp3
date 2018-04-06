@@ -20,7 +20,10 @@ public class TAL extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public TAL(Payload owner) {
         super("TAL",owner);
     }

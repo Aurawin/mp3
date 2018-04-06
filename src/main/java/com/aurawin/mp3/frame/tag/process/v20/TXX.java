@@ -21,7 +21,10 @@ public class TXX extends  Processor implements Process {
         Owner.pldTXX.Data = Stream.readString((int)(Owner.Length-(Stream.Position-Owner.StreamStart)), Owner.pldText.Encoding.toEncoding());
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public TXX(Payload owner) {
         super("TXX",owner);
     }

@@ -21,7 +21,10 @@ public class AENC extends Processor implements Process {
         Owner.Reader.TagFrame.Kind=fAudioEncryption;
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public AENC(Payload owner) {
         super("AENC",owner);
     }

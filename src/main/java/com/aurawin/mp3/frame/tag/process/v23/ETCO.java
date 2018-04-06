@@ -29,7 +29,10 @@ public class ETCO extends Processor implements Process {
         Owner.Reader.StreamPosition = Stream.Position;
         return true;
     }
-
+    @Override
+    public void Reset(){
+        Owner.pldETC.Events.clear();
+    }
     public ETCO(Payload owner) {
         super("ETCO",owner);
     }

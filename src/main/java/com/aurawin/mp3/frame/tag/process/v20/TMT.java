@@ -20,7 +20,10 @@ public class TMT extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public TMT(Payload owner) {
         super("TMT",owner);
     }

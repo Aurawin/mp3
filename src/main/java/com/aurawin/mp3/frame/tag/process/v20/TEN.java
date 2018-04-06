@@ -20,7 +20,10 @@ public class TEN extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public TEN(Payload owner) {
         super("TEN",owner);
     }

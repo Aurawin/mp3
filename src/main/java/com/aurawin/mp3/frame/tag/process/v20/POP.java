@@ -20,7 +20,10 @@ public class POP extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public POP(Payload owner) {
         super("POP",owner);
     }

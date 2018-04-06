@@ -20,7 +20,10 @@ public class TRD extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public TRD(Payload owner) {
         super("TRD",owner);
     }

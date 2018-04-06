@@ -28,7 +28,10 @@ public class EQUA extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public EQUA(Payload owner) {
         super("EQUA",owner);
     }

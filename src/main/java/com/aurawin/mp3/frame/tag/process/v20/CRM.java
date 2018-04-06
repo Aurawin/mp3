@@ -21,7 +21,10 @@ public class CRM extends Processor implements Process {
         Owner.Length=Owner.Reader.TagFrame.Header.Length;
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public CRM(Payload owner) {
         super("CRM", owner);
     }

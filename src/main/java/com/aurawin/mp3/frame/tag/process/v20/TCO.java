@@ -20,7 +20,10 @@ public class TCO extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public TCO(Payload owner) {
         super("TCO",owner);
     }

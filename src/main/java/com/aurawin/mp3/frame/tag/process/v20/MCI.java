@@ -17,7 +17,10 @@ public class MCI extends Processor implements Process {
         Owner.pldMCI.TOC=Stream.Read((int)Owner.Length);
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public MCI(Payload owner) {
         super("MCI", owner);
     }

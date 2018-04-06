@@ -18,14 +18,17 @@ public class GEOB extends Processor implements Process {
         Owner.Reader.TagFrame.Kind=fGeneralEncapsulatedObject;
 
         Owner.pldGEO.Encoding = TextEncoding.Base.fromByte(Stream.readByte());
-        Owner.pldGEO.MimeType= Stream.readStringUntil((byte)0, Stream.Position, Owner.pldText.Encoding.toEncoding());
-        Owner.pldGEO.Filename= Stream.readStringUntil((byte)0, Stream.Position, Owner.pldText.Encoding.toEncoding());
-        Owner.pldGEO.Description= Stream.readStringUntil((byte)0, Stream.Position, Owner.pldText.Encoding.toEncoding());
+        Owner.pldGEO.MimeType= Stream.readStringUntil((byte)0, Stream.Position, Owner.pldGEO.Encoding.toEncoding());
+        Owner.pldGEO.Filename= Stream.readStringUntil((byte)0, Stream.Position, Owner.pldGEO.Encoding.toEncoding());
+        Owner.pldGEO.Description= Stream.readStringUntil((byte)0, Stream.Position, Owner.pldGEO.Encoding.toEncoding());
 
         Owner.pldGEO.Data=Stream.Read((int)(Owner.Length-(Stream.Position-Owner.StreamStart)));
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public GEOB(Payload owner) {
         super("GEOB",owner);
     }

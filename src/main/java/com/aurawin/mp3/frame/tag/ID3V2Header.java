@@ -4,7 +4,7 @@ import com.aurawin.core.stream.MemoryStream;
 import com.aurawin.mp3.frame.Frame;
 import com.aurawin.mp3.frame.Header;
 import com.aurawin.mp3.frame.Reader;
-public class ID3V20Header extends Header {
+public class ID3V2Header extends Header {
 
 
     @Override
@@ -26,7 +26,7 @@ public class ID3V20Header extends Header {
         return Loaded;
     }
 
-    public ID3V20Header(Frame owner, Reader reader) {
+    public ID3V2Header(Frame owner, Reader reader) {
         super(owner,reader);
     }
 }

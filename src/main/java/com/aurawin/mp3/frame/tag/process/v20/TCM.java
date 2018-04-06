@@ -20,7 +20,10 @@ public class TCM extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public TCM(Payload owner) {
         super("TCM",owner);
     }

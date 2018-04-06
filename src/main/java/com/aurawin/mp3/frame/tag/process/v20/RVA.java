@@ -31,7 +31,10 @@ public class RVA extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public RVA(Payload owner) {
         super("RVA",owner);
     }

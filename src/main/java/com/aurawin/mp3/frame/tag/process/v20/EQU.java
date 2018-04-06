@@ -32,7 +32,10 @@ public class EQU extends Processor implements Process {
 
         return true;
     }
-
+    @Override
+    public void Reset(){
+        Owner.pldEQU.Bands.clear();
+    }
     public EQU(Payload owner) {
         super("EQU", owner);
     }

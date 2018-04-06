@@ -20,7 +20,10 @@ public class TT3 extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public TT3(Payload owner) {
         super("TT3",owner);
     }

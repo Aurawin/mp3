@@ -20,7 +20,10 @@ public class TOR extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public TOR(Payload owner) {
         super("TOR",owner);
     }

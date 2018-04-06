@@ -29,7 +29,10 @@ public class REV extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public REV(Payload owner) {
         super("REV",owner);
     }

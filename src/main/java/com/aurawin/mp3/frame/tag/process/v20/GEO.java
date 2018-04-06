@@ -24,7 +24,10 @@ public class GEO extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public GEO(Payload owner) {
         super("GEO", owner);
     }

@@ -18,7 +18,10 @@ public class WAF extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public WAF(Payload owner) {
         super("WAF",owner);
     }

@@ -21,7 +21,10 @@ public class COMM extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public COMM(Payload owner) {
         super("COMM", owner);
     }

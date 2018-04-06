@@ -20,7 +20,10 @@ public class TP4 extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public TP4(Payload owner) {
         super("TP4",owner);
     }

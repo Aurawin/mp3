@@ -20,7 +20,10 @@ public class TKE extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public TKE(Payload owner) {
         super("TKE",owner);
     }

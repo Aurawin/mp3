@@ -9,9 +9,9 @@ import com.aurawin.mp3.payload.BufferSize;
 
 import static com.aurawin.mp3.frame.Kind.fBufferSize;
 
-public class ID3V20Payload extends Payload {
+public class ID3V2Payload extends Payload {
 
-    public ID3V20Payload(Frame owner, Reader reader) {
+    public ID3V2Payload(Frame owner, Reader reader) {
         super(owner, reader);
     }
 
@@ -25,6 +25,7 @@ public class ID3V20Payload extends Payload {
         Processor p = Owner.getProcessor(Owner.Header.ID);
         boolean r = (p!=null);
         if (r) {
+            p.Reset();
             Owner.Reader.StreamPosition=Stream.Position;
             r = p.process(Stream);
             if (!r){

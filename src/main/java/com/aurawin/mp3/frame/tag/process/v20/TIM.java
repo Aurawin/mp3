@@ -20,7 +20,10 @@ public class TIM extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public TIM(Payload owner) {
         super("TIM",owner);
     }

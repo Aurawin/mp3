@@ -20,7 +20,10 @@ public class TT1 extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public TT1(Payload owner) {
         super("TT1",owner);
     }

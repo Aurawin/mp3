@@ -20,7 +20,10 @@ public class TBP extends Processor implements Process {
 
         return true;
     }
+    @Override
+    public void Reset(){
 
+    }
     public TBP(Payload owner) {
         super("TBP",owner);
     }
