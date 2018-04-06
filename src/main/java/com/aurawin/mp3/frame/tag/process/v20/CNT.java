@@ -12,7 +12,6 @@ public class CNT extends Processor implements Process {
         Owner.Data=Owner.pldCNT;
         Owner.Reader.TagFrame.Kind=fPlayCounter;
         Owner.pldCNT.Counter= Stream.readWhole((int) Owner.Reader.TagFrame.Length);
-
         Owner.Length=Owner.Reader.TagFrame.Header.Length;
         return true;
     }

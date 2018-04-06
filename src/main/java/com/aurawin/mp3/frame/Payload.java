@@ -28,6 +28,7 @@ public abstract class Payload {
     public Picture pldPIC;
     public Popularimeter pldPOP;
     public Private pldPRIV;
+    public PositionSynchronization pldPOSS;
     public Reverb pldREV;
     public RelativeVolume pldRVA;
     public SyncronizedTranscript pldSLT;
@@ -78,6 +79,7 @@ public abstract class Payload {
         pldPIC= new Picture();
         pldPOP= new Popularimeter();
         pldPRIV= new Private();
+        pldPOSS=new PositionSynchronization();
         pldREV= new Reverb();
         pldRVA= new RelativeVolume();
         pldSLT= new SyncronizedTranscript();
