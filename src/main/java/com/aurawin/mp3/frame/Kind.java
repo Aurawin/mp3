@@ -107,7 +107,9 @@ public enum Kind {
     fPodcastDescription ("Podcast Description"),                             // 103
     fPodcastFeed ("Podcast Feed"),                                           // 104
     fPodcastID ("Podcast ID"),                                               // 105
-    fEncryption("Encryption");                                               // 106
+    fEncryption("Encryption"),                                               // 106
+    fRadioStationName("Radio Station Name"),                                 // 107
+    fSettings("Hardware / Software settings used for encoding");             // 108
 
     Kind(String value){ Value = value;}
     private final String Value;
