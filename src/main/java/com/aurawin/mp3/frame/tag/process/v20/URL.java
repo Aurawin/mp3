@@ -1,6 +1,7 @@
 package com.aurawin.mp3.frame.tag.process.v20;
 
 import com.aurawin.core.stream.MemoryStream;
+import com.aurawin.mp3.TextEncoding;
 import com.aurawin.mp3.frame.Payload;
 import com.aurawin.mp3.frame.tag.process.Process;
 import com.aurawin.mp3.frame.tag.process.Processor;
@@ -14,7 +15,7 @@ public class URL extends Processor implements Process {
         Owner.StreamStart=Stream.Position;
         Owner.Data=Owner.pldURL;
         Owner.Reader.TagFrame.Kind=fURL;
-        Owner.pldURL.URL = Stream.readString((int)(Owner.Length-(Stream.Position-Owner.StreamStart)), Owner.pldText.Encoding.toEncoding());
+        Owner.pldURL.URL = Stream.readString((int)(Owner.Length-(Stream.Position-Owner.StreamStart)), TextEncoding.Base.toEncoding());
 
         return true;
     }

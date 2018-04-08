@@ -6,27 +6,27 @@ import com.aurawin.mp3.frame.Payload;
 import com.aurawin.mp3.frame.tag.process.Process;
 import com.aurawin.mp3.frame.tag.process.Processor;
 
-import static com.aurawin.mp3.frame.Kind.fLength;
-import static com.aurawin.mp3.frame.Kind.fMediaType;
+import static com.aurawin.mp3.frame.Kind.fUniqueFileID;
+import static com.aurawin.mp3.frame.Kind.fYear;
 
-public class TMED extends Processor implements Process {
+public class UFID extends Processor implements Process {
     @Override
     public boolean process( MemoryStream Stream){
         Owner.Length=Owner.Reader.TagFrame.Header.Length;
         Owner.StreamStart=Stream.Position;
-        Owner.Data=Owner.pldText;
-        Owner.Reader.TagFrame.Kind=fMediaType;
+        Owner.Data=Owner.pldUFI;
+        Owner.Reader.TagFrame.Kind=fUniqueFileID;
 
-        Owner.pldText.Encoding= TextEncoding.Base.fromByte(Stream.readByte());
-        Owner.pldText.Data = Stream.readStringUntil((byte)0, Stream.Position, Owner.pldText.Encoding.toEncoding());
 
+        Owner.pldUFI.Owner = Stream.readStringUntil((byte)0, Stream.Position, TextEncoding.Base.toEncoding());
+        Owner.pldUFI.Identifier=Stream.Read((int)(Owner.Length-(Stream.Position-Owner.StreamStart)));
         return true;
     }
     @Override
     public void Reset(){
 
     }
-    public TMED(Payload owner) {
-        super("TMED",owner);
+    public UFID(Payload owner) {
+        super("UFID",owner);
     }
 }

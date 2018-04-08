@@ -1,14 +1,15 @@
-package com.aurawin.mp3.frame.tag.process.v20;
+package com.aurawin.mp3.frame.tag.process.v23;
 
 import com.aurawin.core.stream.MemoryStream;
+import com.aurawin.mp3.TextEncoding;
 import com.aurawin.mp3.frame.Payload;
 import com.aurawin.mp3.frame.tag.process.Process;
 import com.aurawin.mp3.frame.tag.process.Processor;
 
-
+import static com.aurawin.mp3.frame.Kind.fUniqueFileID;
 import static com.aurawin.mp3.frame.Kind.fUserDefinedTextInformation;
 
-public class TXX extends  Processor implements Process {
+public class USER extends Processor implements Process {
     @Override
     public boolean process( MemoryStream Stream){
         Owner.Length=Owner.Reader.TagFrame.Header.Length;
@@ -25,7 +26,7 @@ public class TXX extends  Processor implements Process {
     public void Reset(){
 
     }
-    public TXX(Payload owner) {
-        super("TXX",owner);
+    public USER(Payload owner) {
+        super("USER",owner);
     }
 }
