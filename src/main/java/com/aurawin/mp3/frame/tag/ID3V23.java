@@ -2,10 +2,9 @@ package com.aurawin.mp3.frame.tag;
 
 import com.aurawin.core.stream.MemoryStream;
 import com.aurawin.mp3.frame.Frame;
-import com.aurawin.mp3.frame.Kind;
 import com.aurawin.mp3.frame.Reader;
+import com.aurawin.mp3.frame.tag.process.v23.WXXX;
 
-import static com.aurawin.mp3.frame.Kind.fID3V20;
 import static com.aurawin.mp3.frame.Kind.fID3V23;
 
 public class ID3V23 extends Frame {
@@ -86,7 +85,7 @@ public class ID3V23 extends Frame {
         Processors.add(new com.aurawin.mp3.frame.tag.process.v23.WOAR(Payload));
         Processors.add(new com.aurawin.mp3.frame.tag.process.v23.WOAS(Payload));
         Processors.add(new com.aurawin.mp3.frame.tag.process.v23.WORS(Payload));
-        Processors.add(new com.aurawin.mp3.frame.tag.process.v23.WXX(Payload));
+        Processors.add(new WXXX(Payload));
     }
 
     @Override

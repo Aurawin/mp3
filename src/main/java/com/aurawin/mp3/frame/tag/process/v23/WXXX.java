@@ -9,7 +9,7 @@ import com.aurawin.mp3.frame.tag.process.Processor;
 import static com.aurawin.mp3.frame.Kind.fOfficialRadioStationWebpage;
 import static com.aurawin.mp3.frame.Kind.fUserDefinedURL;
 
-public class WXX extends Processor implements Process {
+public class WXXX extends Processor implements Process {
     @Override
     public boolean process( MemoryStream Stream){
         Owner.Length=Owner.Reader.TagFrame.Header.Length;
@@ -27,7 +27,7 @@ public class WXX extends Processor implements Process {
     public void Reset(){
 
     }
-    public WXX(Payload owner) {
+    public WXXX(Payload owner) {
         super("WXXX",owner);
     }
 }

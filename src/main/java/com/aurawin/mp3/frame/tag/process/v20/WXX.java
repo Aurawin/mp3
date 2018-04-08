@@ -27,6 +27,6 @@ public class WXX extends Processor implements Process {
 
     }
     public WXX(Payload owner) {
-        super("WXX",owner);
+        super("WXXX",owner);
     }
 }
