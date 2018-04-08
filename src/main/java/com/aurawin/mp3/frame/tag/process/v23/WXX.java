@@ -16,6 +16,7 @@ public class WXX extends Processor implements Process {
         Owner.StreamStart=Stream.Position;
         Owner.Data=Owner.pldWXX;
         Owner.Reader.TagFrame.Kind=fUserDefinedURL;
+
         Owner.pldWXX.Encoding= TextEncoding.Base.fromByte(Stream.readByte());
         Owner.pldWXX.Description=Stream.readStringUntil((byte)0, Stream.Position, Owner.pldWXX.Encoding.toEncoding());
         Owner.pldWXX.URL = Stream.readString((int)(Owner.Length-(Stream.Position-Owner.StreamStart)), Owner.pldWXX.Encoding.toEncoding());
@@ -27,6 +28,6 @@ public class WXX extends Processor implements Process {
 
     }
     public WXX(Payload owner) {
-        super("WXX",owner);
+        super("WXXX",owner);
     }
 }
