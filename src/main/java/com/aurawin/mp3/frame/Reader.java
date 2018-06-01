@@ -31,16 +31,16 @@ public class Reader {
     public  Frame TagFrame;
     public Event OnTagFrame;
 
-    public void LoadAll(MemoryStream Stream){};
-    public void  LoadFirst(MemoryStream Stream){};
-
+    public boolean Load(MemoryStream Stream){
+        return ID3Frame.Load(Stream);
+    }
     public void Release(){
 
     }
     public void setTagFrameEvent(Event evt){
         OnTagFrame=evt;
     }
-    Reader(){
+    public Reader(){
         ID3Frame = new com.aurawin.mp3.frame.ID3(Kind.fID3, this);
         ID3V20Tag = new com.aurawin.mp3.frame.tag.ID3V20(this);
 
