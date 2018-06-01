@@ -13,12 +13,12 @@ public class PRIV extends Processor implements Process {
     @Override
     public boolean process( MemoryStream Stream){
         Owner.Length=Owner.Reader.TagFrame.Header.Length;
-        Owner.StreamStart=Stream.Position;
+        Owner.StreamStart=Stream.position();
         Owner.Data=Owner.pldPRIV;
         Owner.Reader.TagFrame.Kind=fPrivate;
 
-        Owner.pldPRIV.Owner=Stream.readStringUntil((byte)0,Stream.Position,TextEncoding.Base.toEncoding());
-        Owner.pldPRIV.Data=Stream.Read((int)(Owner.Length-(Stream.Position-Owner.StreamStart)));
+        Owner.pldPRIV.Owner=Stream.readStringUntil((byte)0,Stream.position(),TextEncoding.Base.toEncoding());
+        Owner.pldPRIV.Data=Stream.Read((int)(Owner.Length-(Stream.position()-Owner.StreamStart)));
 
         return true;
     }

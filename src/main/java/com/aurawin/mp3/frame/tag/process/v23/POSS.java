@@ -13,12 +13,12 @@ public class POSS extends Processor implements Process {
     @Override
     public boolean process( MemoryStream Stream){
         Owner.Length=Owner.Reader.TagFrame.Header.Length;
-        Owner.StreamStart=Stream.Position;
+        Owner.StreamStart=Stream.position();
         Owner.Data=Owner.pldPOSS;
         Owner.Reader.TagFrame.Kind=fPositionSynchronization;
 
         Owner.pldPOSS.TimeStampFormat=Stream.readByte();
-        Owner.pldPOSS.Position=Stream.readWhole((int)(Owner.Length-(Stream.Position-Owner.StreamStart)));
+        Owner.pldPOSS.Position=Stream.readWhole((int)(Owner.Length-(Stream.position()-Owner.StreamStart)));
 
         return true;
     }

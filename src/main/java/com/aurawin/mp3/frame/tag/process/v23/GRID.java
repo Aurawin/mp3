@@ -13,14 +13,14 @@ public class GRID extends Processor implements Process {
     @Override
     public boolean process( MemoryStream Stream){
         Owner.Length=Owner.Reader.TagFrame.Header.Length;
-        Owner.StreamStart=Stream.Position;
+        Owner.StreamStart=Stream.position();
         Owner.Data=Owner.pldGIR;
         Owner.Reader.TagFrame.Kind=fGroupIdentificationRegistration;
 
 
-        Owner.pldGIR.Identifier= Stream.readStringUntil((byte)0, Stream.Position, TextEncoding.Base.toEncoding());
+        Owner.pldGIR.Identifier= Stream.readStringUntil((byte)0, Stream.position(), TextEncoding.Base.toEncoding());
         Owner.pldGIR.Symbol = Stream.readByte();
-        Owner.pldGIR.Data=Stream.Read((int)(Owner.Length-(Stream.Position-Owner.StreamStart)));
+        Owner.pldGIR.Data=Stream.Read((int)(Owner.Length-(Stream.position()-Owner.StreamStart)));
         return true;
     }
     @Override

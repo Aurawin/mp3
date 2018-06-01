@@ -14,10 +14,10 @@ public class STC extends Processor implements Process {
     public boolean process(MemoryStream Stream) {
         Owner.Reader.TagFrame.Kind=fSyncedTempo;
         Owner.Data=Owner.pldSTC;
-        Owner.StreamStart=Stream.Position;
+        Owner.StreamStart=Stream.position();
         Owner.Length=Owner.Reader.TagFrame.Length;
         Owner.pldSTC.Format = Owner.pldSTC.Format.fromByte(Stream.readByte());
-        Owner.pldSTC.Data=Stream.Read((int)(Owner.Length-(Stream.Position-Owner.StreamStart)));
+        Owner.pldSTC.Data=Stream.Read((int)(Owner.Length-(Stream.position()-Owner.StreamStart)));
         return true;
     }
     @Override

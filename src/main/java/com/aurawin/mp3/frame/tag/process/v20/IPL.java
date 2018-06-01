@@ -16,12 +16,12 @@ public class IPL extends Processor implements Process {
         Owner.Reader.TagFrame.Kind=fInvolvedPeople;
         Owner.Data=Owner.pldIPL;
         Owner.pldIPL.Encoding=Owner.pldIPL.Encoding.fromByte(Stream.readByte());
-        Owner.StreamStart=Stream.Position;
+        Owner.StreamStart=Stream.position();
         Owner.Length = Owner.Reader.TagFrame.Header.Length;
-        while (Stream.Position<(Owner.StreamStart+Owner.Reader.TagFrame.Header.Length)){
+        while (Stream.position()<(Owner.StreamStart+Owner.Reader.TagFrame.Header.Length)){
             InvolvedPerson p = new InvolvedPerson();
-            p.Involvement=Stream.readStringUntil((byte)0,Stream.Position,Owner.pldIPL.Encoding.toEncoding());
-            p.Name= Stream.readStringUntil((byte)0,Stream.Position,Owner.pldIPL.Encoding.toEncoding());
+            p.Involvement=Stream.readStringUntil((byte)0,Stream.position(),Owner.pldIPL.Encoding.toEncoding());
+            p.Name= Stream.readStringUntil((byte)0,Stream.position(),Owner.pldIPL.Encoding.toEncoding());
             Owner.pldIPL.People.add(p);
         }
 

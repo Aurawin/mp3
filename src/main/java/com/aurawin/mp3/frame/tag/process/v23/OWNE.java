@@ -12,14 +12,14 @@ public class OWNE extends Processor implements Process {
     @Override
     public boolean process( MemoryStream Stream){
         Owner.Length=Owner.Reader.TagFrame.Header.Length;
-        Owner.StreamStart=Stream.Position;
+        Owner.StreamStart=Stream.position();
         Owner.Data=Owner.pldOWNE;
         Owner.Reader.TagFrame.Kind=fOwnership;
 
         Owner.pldOWNE.Encoding=Owner.pldPIC.Encoding.fromByte(Stream.readByte());
-        Owner.pldOWNE.PricePaid=Stream.readStringUntil((byte)0,Stream.Position,Owner.pldOWNE.Encoding.toEncoding());
-        Owner.pldOWNE.Date=Stream.readStringUntil((byte)0,Stream.Position,Owner.pldOWNE.Encoding.toEncoding());
-        Owner.pldOWNE.Seller=Stream.readString((int)(Owner.Length-(Stream.Position-Owner.StreamStart)),Owner.pldOWNE.Encoding.toEncoding());
+        Owner.pldOWNE.PricePaid=Stream.readStringUntil((byte)0,Stream.position(),Owner.pldOWNE.Encoding.toEncoding());
+        Owner.pldOWNE.Date=Stream.readStringUntil((byte)0,Stream.position(),Owner.pldOWNE.Encoding.toEncoding());
+        Owner.pldOWNE.Seller=Stream.readString((int)(Owner.Length-(Stream.position()-Owner.StreamStart)),Owner.pldOWNE.Encoding.toEncoding());
 
         return true;
     }

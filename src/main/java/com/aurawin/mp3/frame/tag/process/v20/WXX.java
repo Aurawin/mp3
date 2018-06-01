@@ -12,13 +12,13 @@ public class WXX extends Processor implements Process {
     @Override
     public boolean process( MemoryStream Stream){
         Owner.Length=Owner.Reader.TagFrame.Header.Length;
-        Owner.StreamStart=Stream.Position;
+        Owner.StreamStart=Stream.position();
         Owner.Data=Owner.pldWXX;
         Owner.Reader.TagFrame.Kind=fUserDefinedURL;
 
         Owner.pldWXX.Encoding= TextEncoding.Base.fromByte(Stream.readByte());
-        Owner.pldWXX.Description=Stream.readStringUntil((byte)0,Stream.Position,Owner.pldWXX.Encoding.toEncoding());
-        Owner.pldWXX.URL = Stream.readString((int)(Owner.Length-(Stream.Position-Owner.StreamStart)), Owner.pldWXX.Encoding.toEncoding());
+        Owner.pldWXX.Description=Stream.readStringUntil((byte)0,Stream.position(),Owner.pldWXX.Encoding.toEncoding());
+        Owner.pldWXX.URL = Stream.readString((int)(Owner.Length-(Stream.position()-Owner.StreamStart)), Owner.pldWXX.Encoding.toEncoding());
 
         return true;
     }

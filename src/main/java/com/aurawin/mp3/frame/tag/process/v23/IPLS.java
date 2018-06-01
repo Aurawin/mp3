@@ -14,16 +14,16 @@ public class IPLS extends Processor implements Process {
     @Override
     public boolean process( MemoryStream Stream){
         Owner.Length=Owner.Reader.TagFrame.Header.Length;
-        Owner.StreamStart=Stream.Position;
+        Owner.StreamStart=Stream.position();
         Owner.Data=Owner.pldIPL;
         Owner.Reader.TagFrame.Kind=fInvolvedPeopleList;
 
         Owner.pldIPL.Encoding = TextEncoding.Base.fromByte(Stream.readByte());
 
-        while ((Owner.Length-(Stream.Position-Owner.StreamStart))>0){
+        while ((Owner.Length-(Stream.position()-Owner.StreamStart))>0){
             InvolvedPerson p = new InvolvedPerson();
-            p.Involvement=Stream.readStringUntil((byte)0, Stream.Position, Owner.pldIPL.Encoding.toEncoding());
-            p.Name=Stream.readStringUntil((byte)0, Stream.Position, Owner.pldIPL.Encoding.toEncoding());
+            p.Involvement=Stream.readStringUntil((byte)0, Stream.position(), Owner.pldIPL.Encoding.toEncoding());
+            p.Name=Stream.readStringUntil((byte)0, Stream.position(), Owner.pldIPL.Encoding.toEncoding());
             Owner.pldIPL.People.add(p);
         }
 

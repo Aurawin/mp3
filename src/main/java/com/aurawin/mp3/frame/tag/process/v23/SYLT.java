@@ -14,18 +14,18 @@ public class SYLT extends Processor implements Process {
     public boolean process( MemoryStream Stream){
         Owner.Reader.TagFrame.Kind=fSyncedText;
         Owner.Data=Owner.pldSLT;
-        Owner.StreamStart=Stream.Position;
+        Owner.StreamStart=Stream.position();
         Owner.Length=Owner.Reader.TagFrame.Length;
 
         Owner.pldSLT.Encoding=Owner.pldSLT.Encoding.fromByte(Stream.readByte());
         Owner.pldSLT.Language=Stream.readString(3,"UTF-8");
         Owner.pldSLT.Format=Owner.pldSLT.Format.fromByte(Stream.readByte());
         Owner.pldSLT.ContentType = Owner.pldSLT.ContentType.fromByte(Stream.readByte());
-        Owner.pldSLT.Description=Stream.readStringUntil((byte)0,Stream.Position,Owner.pldSLT.Encoding.toEncoding());
+        Owner.pldSLT.Description=Stream.readStringUntil((byte)0,Stream.position(),Owner.pldSLT.Encoding.toEncoding());
 
-        while (Stream.Position< Owner.Length-(Stream.Position-Owner.StreamStart)){
+        while (Stream.position()< Owner.Length-(Stream.position()-Owner.StreamStart)){
             SynchronizedText l = new SynchronizedText();
-            l.Text=Stream.readStringUntil((byte)0,Stream.Position,Owner.pldSLT.Encoding.toEncoding());
+            l.Text=Stream.readStringUntil((byte)0,Stream.position(),Owner.pldSLT.Encoding.toEncoding());
             l.Stamp=Stream.readByte();
             Owner.pldSLT.List.add(l);
         }

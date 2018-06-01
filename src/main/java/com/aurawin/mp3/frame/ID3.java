@@ -10,25 +10,26 @@ public class ID3 extends Frame {
 
     public boolean Load(MemoryStream Stream){
         boolean handled=false;
-        while (Stream.Position<Stream.Size) {
-            Position = Stream.Position;
+        Stream.position(0);
+        while (Stream.position()<Stream.size()) {
+            Position = Stream.position();
             Header.StreamStart = Stream.Find(ID,Position);
             if (Header.StreamStart > -1) {
                 // found instance...
                 Position += 3;
-                Stream.Position = Position;
+                Stream.position(Position);
                 handled = Header.Load(Stream);
                 if (handled) {
                     loadTagPrcocessor();
-                    Payload.StreamStart = Stream.Position;
+                    Payload.StreamStart = Stream.position();
                     Payload.Length = Header.Length;
                     handled = Payload.Load(Stream);
                     if (handled == false) {
-                        Stream.Position = Header.StreamStart + Header.Length;
+                        Stream.position(Header.StreamStart + Header.Length);
                     }
                 }
             } else{
-                Stream.Position = Stream.Size;
+                Stream.position(Stream.size());
             }
         }
         return handled;

@@ -11,12 +11,12 @@ public class POP extends Processor implements Process {
     @Override
     public boolean process( MemoryStream Stream){
         Owner.Length=Owner.Reader.TagFrame.Header.Length;
-        Owner.StreamStart=Stream.Position;
+        Owner.StreamStart=Stream.position();
         Owner.Data=Owner.pldPOP;
         Owner.Reader.TagFrame.Kind=fPopularimeter;
-        Owner.pldPOP.Email=Stream.readStringUntil((byte)0,Stream.Position,"UTF-8");
+        Owner.pldPOP.Email=Stream.readStringUntil((byte)0,Stream.position(),"UTF-8");
         Owner.pldPOP.Rating=Stream.readByte();
-        Owner.pldPOP.Counter=Stream.readWhole((int)(Owner.Length-(Stream.Position-Owner.StreamStart)));
+        Owner.pldPOP.Counter=Stream.readWhole((int)(Owner.Length-(Stream.position()-Owner.StreamStart)));
 
         return true;
     }

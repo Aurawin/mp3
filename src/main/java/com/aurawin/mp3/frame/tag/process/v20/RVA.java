@@ -15,7 +15,7 @@ public class RVA extends Processor implements Process {
     @Override
     public boolean process( MemoryStream Stream){
         Owner.Length=Owner.Reader.TagFrame.Header.Length;
-        Owner.StreamStart=Stream.Position;
+        Owner.StreamStart=Stream.position();
         Owner.Data=Owner.pldRVA;
         Owner.Reader.TagFrame.Kind=fVolumeAdj;
         byte value=Stream.readByte();

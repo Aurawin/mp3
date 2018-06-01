@@ -11,12 +11,12 @@ public class TXT extends Processor implements Process {
     @Override
     public boolean process( MemoryStream Stream){
         Owner.Length=Owner.Reader.TagFrame.Header.Length;
-        Owner.StreamStart=Stream.Position;
+        Owner.StreamStart=Stream.position();
         Owner.Data=Owner.pldText;
         Owner.Reader.TagFrame.Kind=fTextWriter;
 
         Owner.pldText.Encoding= Owner.pldText.Encoding.fromByte(Stream.readByte());
-        Owner.pldText.Data = Stream.readStringUntil((byte)0, Stream.Position, Owner.pldText.Encoding.toEncoding());
+        Owner.pldText.Data = Stream.readStringUntil((byte)0, Stream.position(), Owner.pldText.Encoding.toEncoding());
 
         return true;
     }

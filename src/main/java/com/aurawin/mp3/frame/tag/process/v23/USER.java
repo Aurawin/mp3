@@ -13,13 +13,13 @@ public class USER extends Processor implements Process {
     @Override
     public boolean process( MemoryStream Stream){
         Owner.Length=Owner.Reader.TagFrame.Header.Length;
-        Owner.StreamStart=Stream.Position;
+        Owner.StreamStart=Stream.position();
         Owner.Data=Owner.pldTXX;
         Owner.Reader.TagFrame.Kind=fUserDefinedTextInformation;
 
         Owner.pldTXX.Encoding= Owner.pldText.Encoding.fromByte(Stream.readByte());
-        Owner.pldTXX.Description = Stream.readStringUntil((byte)0, Stream.Position, Owner.pldTXX.Encoding.toEncoding());
-        Owner.pldTXX.Data = Stream.readString((int)(Owner.Length-(Stream.Position-Owner.StreamStart)), Owner.pldTXX.Encoding.toEncoding());
+        Owner.pldTXX.Description = Stream.readStringUntil((byte)0, Stream.position(), Owner.pldTXX.Encoding.toEncoding());
+        Owner.pldTXX.Data = Stream.readString((int)(Owner.Length-(Stream.position()-Owner.StreamStart)), Owner.pldTXX.Encoding.toEncoding());
         return true;
     }
     @Override

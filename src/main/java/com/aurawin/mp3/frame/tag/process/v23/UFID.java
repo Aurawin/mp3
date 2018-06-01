@@ -13,13 +13,13 @@ public class UFID extends Processor implements Process {
     @Override
     public boolean process( MemoryStream Stream){
         Owner.Length=Owner.Reader.TagFrame.Header.Length;
-        Owner.StreamStart=Stream.Position;
+        Owner.StreamStart=Stream.position();
         Owner.Data=Owner.pldUFI;
         Owner.Reader.TagFrame.Kind=fUniqueFileID;
 
 
-        Owner.pldUFI.Owner = Stream.readStringUntil((byte)0, Stream.Position, TextEncoding.Base.toEncoding());
-        Owner.pldUFI.Identifier=Stream.Read((int)(Owner.Length-(Stream.Position-Owner.StreamStart)));
+        Owner.pldUFI.Owner = Stream.readStringUntil((byte)0, Stream.position(), TextEncoding.Base.toEncoding());
+        Owner.pldUFI.Identifier=Stream.Read((int)(Owner.Length-(Stream.position()-Owner.StreamStart)));
         return true;
     }
     @Override

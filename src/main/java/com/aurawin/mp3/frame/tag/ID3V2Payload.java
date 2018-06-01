@@ -26,14 +26,14 @@ public class ID3V2Payload extends Payload {
         boolean r = (p!=null);
         if (r) {
             p.Reset();
-            Owner.Reader.StreamPosition=Stream.Position;
+            Owner.Reader.StreamPosition=Stream.position();
             r = p.process(Stream);
             if (!r){
-                Stream.Position=Owner.Header.StreamStart+Owner.Header.Length;
+                Stream.position(Owner.Header.StreamStart+Owner.Header.Length);
             }
             return r;
         } else {
-            Owner.Reader.StreamPosition=Stream.Position;
+            Owner.Reader.StreamPosition=Stream.position();
             return false;
         }
 

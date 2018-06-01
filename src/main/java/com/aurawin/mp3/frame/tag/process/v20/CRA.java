@@ -13,11 +13,11 @@ public class CRA extends Processor implements Process {
     public boolean process(MemoryStream Stream) {
         Owner.Reader.TagFrame.Kind=fAudioEncryption;
         Owner.Data=Owner.pldCRA;
-        Owner.Length=Stream.Position;
-        Owner.pldCRA.Owner=Stream.readStringUntil((byte) 0, Stream.Position, "UTF-8");
+        Owner.Length=Stream.position();
+        Owner.pldCRA.Owner=Stream.readStringUntil((byte) 0, Stream.position(), "UTF-8");
         Owner.pldCRA.PreviewStart = (short) Stream.readWhole((int) 2);
         Owner.pldCRA.PreviewLength = (short) Stream.readWhole((int)2);
-        Owner.Length = Owner.Reader.TagFrame.Header.Length - (Stream.Position - Owner.Length);
+        Owner.Length = Owner.Reader.TagFrame.Header.Length - (Stream.position() - Owner.Length);
         Owner.pldCRA.Data = Stream.Read((int) Owner.Length);
         Owner.Length=Owner.Reader.TagFrame.Header.Length;
         return true;

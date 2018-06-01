@@ -14,18 +14,18 @@ public class ETC extends Processor implements Process {
     public boolean process(MemoryStream Stream) {
         Owner.Data=Owner.pldETC;
         Owner.Reader.TagFrame.Kind=fEventTimingCodes;
-        Owner.Reader.StreamPosition=Stream.Position;
+        Owner.Reader.StreamPosition=Stream.position();
         Owner.Length=Owner.Reader.TagFrame.Header.Length;
         long iStop=Owner.Reader.StreamPosition+Owner.Length;
         Owner.pldETC.Format = Owner.pldETC.Format.fromByte(Stream.readByte());
 
-        while ((Stream.Position<iStop) && (Stream.Position<Stream.Size)) {
+        while ((Stream.position()<iStop) && (Stream.position()<Stream.size())) {
             EventItem ei =new EventItem();
             Owner.pldETC.Events.add(ei);
             ei.Kind = ei.Kind.fromInt((int)Stream.readWhole(1));
             ei.Stamp = (int) Stream.readWhole(1);
         }
-        Owner.Reader.StreamPosition = Stream.Position;
+        Owner.Reader.StreamPosition = Stream.position();
         return true;
     }
     @Override

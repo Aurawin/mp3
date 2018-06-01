@@ -14,11 +14,11 @@ public class LNK extends Processor implements Process {
         Owner.Data=Owner.pldLNK;
         Owner.Reader.TagFrame.Kind=fLinkedInfo;
         Owner.Length=Owner.Reader.TagFrame.Header.Length;
-        Owner.StreamStart=Stream.Position;
+        Owner.StreamStart=Stream.position();
         Owner.pldLNK.FrameId=Stream.readWhole(3);
-        Owner.pldLNK.URL=Stream.readStringUntil((byte)0,Stream.Position,"UTF-8");
-        while (Stream.Position<(Owner.Length+Owner.StreamStart)) {
-            Owner.pldLNK.List.add(Stream.readStringUntil((byte) 0, Stream.Position, "UTF-8"));
+        Owner.pldLNK.URL=Stream.readStringUntil((byte)0,Stream.position(),"UTF-8");
+        while (Stream.position()<(Owner.Length+Owner.StreamStart)) {
+            Owner.pldLNK.List.add(Stream.readStringUntil((byte) 0, Stream.position(), "UTF-8"));
         }
         return true;
     }

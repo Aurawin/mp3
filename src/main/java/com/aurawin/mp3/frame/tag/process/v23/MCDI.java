@@ -13,11 +13,11 @@ public class MCDI extends Processor implements Process {
     @Override
     public boolean process( MemoryStream Stream){
         Owner.Length=Owner.Reader.TagFrame.Header.Length;
-        Owner.StreamStart=Stream.Position;
+        Owner.StreamStart=Stream.position();
         Owner.Data=Owner.pldMCI;
         Owner.Reader.TagFrame.Kind=fMusicCDIdentifier;
 
-        Owner.pldMCI.TOC=Stream.Read((int)(Owner.Length-(Stream.Position-Owner.StreamStart)));
+        Owner.pldMCI.TOC=Stream.Read((int)(Owner.Length-(Stream.position()-Owner.StreamStart)));
         return true;
     }
     @Override

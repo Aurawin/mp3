@@ -99,11 +99,11 @@ public class ID3V20 extends Frame {
         */
         handled=Header.Load(Stream);
         if (handled) {
-            Payload.StreamStart=Stream.Position;
+            Payload.StreamStart=Stream.position();
             Payload.Length=Header.Length;
             Length=Header.Length;
             handled=Payload.Load(Stream);
-            Stream.Position=Payload.StreamStart + Payload.Length;
+            Stream.position(Payload.StreamStart + Payload.Length);
         }
         return handled;
     }

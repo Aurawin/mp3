@@ -15,7 +15,7 @@ public class EQUA extends Processor implements Process {
     @Override
     public boolean process( MemoryStream Stream){
         Owner.Length=Owner.Reader.TagFrame.Header.Length;
-        Owner.StreamStart=Stream.Position;
+        Owner.StreamStart=Stream.position();
         Owner.Data=Owner.pldEQU;
         Owner.Reader.TagFrame.Kind=fEqualization;
         Owner.pldEQU.AdjustmentBits=Stream.readByte();
@@ -24,7 +24,7 @@ public class EQUA extends Processor implements Process {
         EqualizationBand eb = new EqualizationBand();
         eb.Direction = ((byte) (hdr  & (1 <<15) >>15))==0 ? Decrement: Increment;
         eb.Frequency = hdr ^ (1 << 15);
-        eb.Adjustment=Stream.Read((int)(Owner.Length-(Stream.Position-Owner.StreamStart)));
+        eb.Adjustment=Stream.Read((int)(Owner.Length-(Stream.position()-Owner.StreamStart)));
 
         return true;
     }

@@ -13,13 +13,13 @@ public class GEO extends Processor implements Process {
     public boolean process(MemoryStream Stream) {
         Owner.Reader.TagFrame.Kind=fGeneralEncapsulatedObject;
         Owner.Data=Owner.pldGEO;
-        Owner.Length=Stream.Position;
+        Owner.Length=Stream.position();
         Owner.pldGEO.Encoding = Owner.pldGEO.Encoding.fromByte(Stream.readByte());
-        Owner.pldGEO.MimeType=Stream.readStringUntil((byte)0, Stream.Position, Owner.pldGEO.Encoding.toEncoding());
-        Owner.pldGEO.Filename=Stream.readStringUntil((byte)0, Stream.Position, Owner.pldGEO.Encoding.toEncoding());
-        Owner.pldGEO.Description=Stream.readStringUntil((byte)0, Stream.Position,Owner.pldGEO.Encoding.toEncoding());
+        Owner.pldGEO.MimeType=Stream.readStringUntil((byte)0, Stream.position(), Owner.pldGEO.Encoding.toEncoding());
+        Owner.pldGEO.Filename=Stream.readStringUntil((byte)0, Stream.position(), Owner.pldGEO.Encoding.toEncoding());
+        Owner.pldGEO.Description=Stream.readStringUntil((byte)0, Stream.position(),Owner.pldGEO.Encoding.toEncoding());
 
-        Owner.Length=Owner.Reader.TagFrame.Length-(Stream.Position-Owner.Length);
+        Owner.Length=Owner.Reader.TagFrame.Length-(Stream.position()-Owner.Length);
         Owner.pldGEO.Data = Stream.Read((int)Owner.Length);
 
         return true;

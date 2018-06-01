@@ -13,15 +13,15 @@ public class LINK extends Processor implements Process {
     @Override
     public boolean process( MemoryStream Stream){
         Owner.Length=Owner.Reader.TagFrame.Header.Length;
-        Owner.StreamStart=Stream.Position;
+        Owner.StreamStart=Stream.position();
         Owner.Data=Owner.pldLNK;
         Owner.Reader.TagFrame.Kind=fURL;
 
 
         Owner.pldLNK.FrameId=Stream.readWhole(3);
-        Owner.pldLNK.URL=Stream.readStringUntil((byte)0, Stream.Position, TextEncoding.Base.toEncoding());
-        while ((Owner.Length-(Stream.Position-Owner.StreamStart))>0) {
-            String u =Stream.readStringUntil((byte)0, Stream.Position, TextEncoding.Base.toEncoding());
+        Owner.pldLNK.URL=Stream.readStringUntil((byte)0, Stream.position(), TextEncoding.Base.toEncoding());
+        while ((Owner.Length-(Stream.position()-Owner.StreamStart))>0) {
+            String u =Stream.readStringUntil((byte)0, Stream.position(), TextEncoding.Base.toEncoding());
             Owner.pldLNK.List.add(u);
         }
         return true;

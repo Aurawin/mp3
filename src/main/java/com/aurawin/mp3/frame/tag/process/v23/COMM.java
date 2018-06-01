@@ -13,11 +13,11 @@ public class COMM extends Processor implements Process {
     public boolean process(MemoryStream Stream){
         Owner.Data=Owner.pldCOM;
         Owner.Reader.TagFrame.Kind=fComments;
-        Owner.StreamStart=Stream.Position;
+        Owner.StreamStart=Stream.position();
         Owner.pldCOM.Encoding=Owner.pldCOM.Encoding.fromByte(Stream.readByte());
         Owner.pldCOM.Language=Stream.readString(3,"UTF-8");
-        Owner.pldCOM.Description=Stream.readStringUntil((byte) 0,Stream.Position,Owner.pldCOM.Encoding.toEncoding());
-        Owner.pldCOM.Text=Stream.readString((int)(Owner.Length-(Stream.Position-Owner.StreamStart)),Owner.pldCOM.Encoding.toEncoding());
+        Owner.pldCOM.Description=Stream.readStringUntil((byte) 0,Stream.position(),Owner.pldCOM.Encoding.toEncoding());
+        Owner.pldCOM.Text=Stream.readString((int)(Owner.Length-(Stream.position()-Owner.StreamStart)),Owner.pldCOM.Encoding.toEncoding());
 
         return true;
     }

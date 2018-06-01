@@ -13,16 +13,16 @@ public class GEOB extends Processor implements Process {
     @Override
     public boolean process( MemoryStream Stream){
         Owner.Length=Owner.Reader.TagFrame.Header.Length;
-        Owner.StreamStart=Stream.Position;
+        Owner.StreamStart=Stream.position();
         Owner.Data=Owner.pldGEO;
         Owner.Reader.TagFrame.Kind=fGeneralEncapsulatedObject;
 
         Owner.pldGEO.Encoding = TextEncoding.Base.fromByte(Stream.readByte());
-        Owner.pldGEO.MimeType= Stream.readStringUntil((byte)0, Stream.Position, Owner.pldGEO.Encoding.toEncoding());
-        Owner.pldGEO.Filename= Stream.readStringUntil((byte)0, Stream.Position, Owner.pldGEO.Encoding.toEncoding());
-        Owner.pldGEO.Description= Stream.readStringUntil((byte)0, Stream.Position, Owner.pldGEO.Encoding.toEncoding());
+        Owner.pldGEO.MimeType= Stream.readStringUntil((byte)0, Stream.position(), Owner.pldGEO.Encoding.toEncoding());
+        Owner.pldGEO.Filename= Stream.readStringUntil((byte)0, Stream.position(), Owner.pldGEO.Encoding.toEncoding());
+        Owner.pldGEO.Description= Stream.readStringUntil((byte)0, Stream.position(), Owner.pldGEO.Encoding.toEncoding());
 
-        Owner.pldGEO.Data=Stream.Read((int)(Owner.Length-(Stream.Position-Owner.StreamStart)));
+        Owner.pldGEO.Data=Stream.Read((int)(Owner.Length-(Stream.position()-Owner.StreamStart)));
         return true;
     }
     @Override
